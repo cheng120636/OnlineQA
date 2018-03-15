@@ -24,6 +24,10 @@
                      <div class=" col-md-6">
                          <button class="btn btn-success" id="questionButton">我要提问</button>
                      </div>
+                     <div>
+                         <input  type="text"  name="title">
+                         <button id="query" class="btn btn-default">搜索</button>
+                     </div>
                  </div>
 
                  <div class="row">
@@ -94,6 +98,13 @@
 </body>
 <script type="text/javascript">
     $(function () {
+//        模糊查询
+        $("#query").click(function () {
+            var title = $("input[name=title]").val();
+            var url = location.href.split("?")[0]+"?pageNum=1&pageSize=5&title="+title;
+            location.href=url;
+        })
+
 //        验证
         $("#saveAddQuestion").click(function () {
             var name = $("#addQuestions").val();

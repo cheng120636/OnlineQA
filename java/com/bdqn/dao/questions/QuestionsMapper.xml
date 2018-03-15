@@ -16,7 +16,13 @@
         <result property="nickName" column="nickName"></result>
     </resultMap>
     <select id="queryAllQuestions" resultMap="questionMap">
-        SELECT qs.`id`,qs.`title`,qs.`answerCount`,qs.`lastModified`,qs.user_id FROM questions qs ORDER BY qs.`lastModified` DESC
+        SELECT qs.`id`,qs.`title`,qs.`answerCount`,qs.`lastModified`,qs.user_id FROM questions qs
+        <where>
+        <if test="title!=null and title!=''">
+         AND title like concat ('%',#{title},'%')
+        </if>
+        </where>
+          ORDER BY qs.`lastModified` DESC
     </select>
     <insert id="addNewQuestion" parameterType="Questions">
         INSERT INTO questions VALUES(null,#{title},#{detailDesc},0,now(),#{user.id})

@@ -7,7 +7,7 @@ import com.github.pagehelper.PageInfo;
  * Created by Administrator on 2018/3/13.
  */
 public interface QuestionServices {
-    public PageInfo<Questions> queryAllQuestions(Integer pageNum, Integer pageSize);
+    public PageInfo<Questions> queryAllQuestions(Integer pageNum, Integer pageSize,String title);
     public Integer addNewQuestion(Questions questions);
     public Integer updateQuestion(Questions questions);
     public PageInfo<Questions> queryQuestionByUserId(Integer userId, Integer pageNum, Integer pageSize);

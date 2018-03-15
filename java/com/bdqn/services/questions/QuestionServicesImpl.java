@@ -18,9 +18,9 @@ public class QuestionServicesImpl implements QuestionServices {
     @Resource
     private QuestionsMapper questionsMapper;
     @Override
-    public PageInfo<Questions> queryAllQuestions(Integer pageNum, Integer pageSize) {
+    public PageInfo<Questions> queryAllQuestions(Integer pageNum, Integer pageSize,String title) {
         PageHelper.startPage(pageNum,pageSize);
-        List<Questions> list=questionsMapper.queryAllQuestions();
+        List<Questions> list=questionsMapper.queryAllQuestions(title);
         return new PageInfo<Questions>(list);
     }
 

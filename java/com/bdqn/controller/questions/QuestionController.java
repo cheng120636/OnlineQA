@@ -25,9 +25,10 @@ public class QuestionController {
     @Autowired
     private QuestionServices questionServices;
 
-    @RequestMapping("queryAll")
-    public String queryAll(Integer pageNum, Integer pageSize, HttpSession session, Model model){
-        PageInfo<Questions> pageInfo = questionServices.queryAllQuestions(pageNum, pageSize);
+    @RequestMapping(value = "queryAll",method = RequestMethod.GET)
+    public String queryAll(Integer pageNum, Integer pageSize,String title,HttpSession session, Model model){
+        System.out.println(title);
+        PageInfo<Questions> pageInfo = questionServices.queryAllQuestions(pageNum, pageSize,title);
         model.addAttribute("pageInfo",pageInfo);
         return "questions";
     }
