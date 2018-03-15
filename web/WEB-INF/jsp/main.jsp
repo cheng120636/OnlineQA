@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>自由者</title>
     <%@include file="basic.jsp"%>
 </head>
 <body>
@@ -22,16 +22,11 @@
     <div class="row">
         <a href="${pageContext.request.contextPath}/question/queryQuestion?pageNum=1&pageSize=5&userId=${loginUser.id}"><h3>我的问题:</h3></a>
     </div>
-    <%--<div class="row">--%>
-        <%--<div class="col-md-7 col-md-offset-5" style="padding: 30px">--%>
-            <%--<img id="img" src="/src/timg.jpg" class="img-rounded">--%>
-        <%--</div>--%>
-    <%--</div>--%>
-    <%--<div style="padding: 20px;">--%>
-    <%--<div class = "container">--%>
-        <%--<img src = "/img/timg.jpg" class="img-circle" >--%>
-    <%--</div>--%>
-    <%--</div>--%>
+    <div class="row">
+        <div class="col-md-12"  style=" background-size:100% 100% ;height: 200px; padding: 10px 50px">
+            <img id="img" src="http://img.mp.itc.cn/upload/20170205/eb2906c38a7c49e2baf5c187535eeada_th.jpeg" class="img-circle">
+        </div>
+    </div>
 </div>
 </body>
 </html>
