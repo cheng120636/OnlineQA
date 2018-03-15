@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bdqn.dao.questions.QuestionsMapper">
+    <resultMap id="questionMap" type="Questions">
+        <id property="id" column="id"></id>
+        <result property="title" column="title"></result>
+        <result property="detailDesc" column="detailDesc"></result>
+        <association property="user" javaType="User" resultMap="userMap"></association>
+    </resultMap>
+    <resultMap id="userMap" type="User">
+        <id property="id" column="u_id"></id>
+        <result property="userName" column="userName"></result>
+        <result property="password" column="password"></result>
+        <result property="nickName" column="nickName"></result>
+    </resultMap>
+    <select id="queryAllQuestions" resultMap="questionMap">
+        SELECT qs.`id`,qs.`title`,qs.`answerCount`,qs.`lastModified`,qs.user_id FROM questions qs ORDER BY qs.`lastModified` DESC
+    </select>
+    <insert id="addNewQuestion" parameterType="Questions">
+        INSERT INTO questions VALUES(null,#{title},#{detailDesc},0,now(),#{user.id})
+    </insert>
+    <update id="updateQuestion" parameterType="Questions">
+        UPDATE `questions` qs SET qs.`lastModified`=#{lastModified},qs.`answerCount`=#{answerCount} WHERE qs.`id`=#{id}
+    </update>
+    <select id="queryQuestionByUserId" parameterType="Integer" resultMap="questionMap">
+        SELECT * FROM questions WHERE user_id=#{userId}
+    </select>
+    <delete id="deleteQuestionById" parameterType="Integer">
+        DELETE FROM questions WHERE id=#{id}
+    </delete>
+    <select id="queryQuestionById" resultMap="questionMap" parameterType="Integer">
+        SELECT * FROM questions where id=#{id}
+    </select>
+    <update id="updateQuestionByTitle" parameterType="Questions">
+        UPDATE `questions` SET title=#{title},detailDesc=#{detailDesc} WHERE id=#{id}
+    </update>
+
+</mapper>
