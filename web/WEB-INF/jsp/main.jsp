@@ -32,6 +32,9 @@
 </html>
 <script type="text/javascript">
     $(function () {
+
+
+
         $("#img").addClass("carousel-inner img-responsive img-rounded");
     })
 

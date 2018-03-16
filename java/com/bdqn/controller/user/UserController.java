@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  * Created by Administrator on 2018/3/13.
  */
 @Controller
-@RequestMapping(value = "user")
+@RequestMapping("user")
 public class UserController {
     @Autowired
     private UserServices userServices;
@@ -25,6 +25,7 @@ public class UserController {
 
     @RequestMapping(value = "login",method = RequestMethod.POST)
     public String login(User user, HttpSession session, Model model){
+        System.out.println(user);
         User user1=userServices.queryUserByUserName(user.getUserName());
         if (user1!=null) {
             if (user.getPassword().equals(user1.getPassword())) {
@@ -32,15 +33,15 @@ public class UserController {
                 return "main";
             }
             model.addAttribute("message","登录失败,密码错误!");
-            return "index";
+            return "index1";
         }
         model.addAttribute("message","登录失败,用户名不存在!");
-        return "index";
+        return "index1";
     }
     @RequestMapping("logout")
     public String logout(HttpSession session){
         session.removeAttribute("loginUser");
-        return "index";
+        return "index1";
     }
     @RequestMapping("toMain")
     public String toMain(){

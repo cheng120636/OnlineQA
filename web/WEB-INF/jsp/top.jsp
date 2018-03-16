@@ -4,7 +4,7 @@
 <div align="center">
     <h2>
         <a href="${pageContext.request.contextPath}/answers/toMain">
-        自由言论论坛首页
+        众说纷纭论坛首页
         </a>
     </h2>
     <div class="row">

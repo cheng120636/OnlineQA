@@ -31,7 +31,9 @@
                     <c:forEach items="${pageInfo.list}" var="list">
                     <tr>
                         <td>${list.id}</td>
-                        <td>${list.title}</td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/answers/queryAnswers?pageNum=1&pageSize=5&questionId=${list.id}"  name="questionButton1">${list.title}</a>
+                        </td>
                         <td>${list.answerCount}</td>
                         <td><fmt:formatDate value="${list.lastModified}" pattern="yyyy-MM-dd HH:mm:ss"></fmt:formatDate> </td>
                         <td>

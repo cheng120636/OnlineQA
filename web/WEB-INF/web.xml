@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <welcome-file-list>
-            <welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
+            <welcome-file>/WEB-INF/jsp/index1.jsp</welcome-file>
         </welcome-file-list>
         <listener>
             <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -25,22 +25,23 @@
             <servlet-name>springmvc</servlet-name>
             <url-pattern>/</url-pattern>
         </servlet-mapping>
-  <!--中文乱码-->
+
+    <!--中文乱码加的过滤器,放在web.xml下就行了-->
     <filter>
-        <filter-name>encodingFilter</filter-name>
+        <filter-name>characterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
         <init-param>
             <param-name>encoding</param-name>
-            <param-value>utf-8</param-value>
+            <param-value>UTF-8</param-value>
         </init-param>
         <init-param>
             <param-name>forceEncoding</param-name>
             <param-value>true</param-value>
         </init-param>
     </filter>
-
     <filter-mapping>
-        <filter-name>encodingFilter</filter-name>
-        <servlet-name>springmvc</servlet-name>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <!--中文乱码加的过滤器-->
 </web-app>
