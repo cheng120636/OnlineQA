@@ -13,7 +13,7 @@
     <title>论坛</title>
     <%@include file="basic.jsp"%>
 </head>
-<body>
+<body  style="background: url(http://img.zcool.cn/community/0142135541fe180000019ae9b8cf86.jpg@1280w_1l_2o_100sh.png)">
 <div class="container">
     <%@include file="top.jsp"%>
     <div class="row">
